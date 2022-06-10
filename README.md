@@ -1,46 +1,23 @@
-# Getting Started with Create React App and Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Roster football (code challenge)
 
-## Available Scripts
+Live link:- https://neon-dodol-dd4589.netlify.app/
 
-In the project directory, you can run:
+It's a football management website. You must have to use a CSV file to show data. If the CSV file doesn't have a value of the property the error will be shown in the UI. You can edit players and also can delete players. Users can also see the player details.
 
-### `npm start`
+You have to select 1 goalkeeper, 4 defenders, 3 midfielders, and 3 forwards to see players on the field otherwise it's not shown in UI.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Technology used:- React, Redux, Material UI.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Images
 
-### `npm run build`
+![App Screenshot](https://i.ibb.co/wSPHPQm/Screenshot-175.png) 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![App Screenshot](https://i.ibb.co/3Bttxwq/Screenshot-176.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![App Screenshot](https://i.ibb.co/4SV4875/Screenshot-177.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![App Screenshot](https://i.ibb.co/R4wcfmH/Screenshot-179.png)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
