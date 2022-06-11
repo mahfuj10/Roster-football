@@ -39,11 +39,11 @@ const PlayerDetails = () => {
                         <Box className='personal-details'>
                             <span>
                                 <small>Height</small>
-                                <h6>{playerDetails?.Height}</h6>
+                                <h6>{playerDetails?.Height} m</h6>
                             </span>
                             <span>
                                 <small>Weight</small>
-                                <h6>{playerDetails?.Weight}</h6>
+                                <h6>{playerDetails?.Weight} kg</h6>
                             </span>
                             <span>
                                 <small>Nationality</small>

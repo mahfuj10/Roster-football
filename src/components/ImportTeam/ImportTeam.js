@@ -48,23 +48,31 @@ const ImportTeam = ({ openModal, handleOpenModal, handleCloseModal }) => {
     };
 
 
-
     // missing data indentify
     const missingDataFromFile = (files) => {
-        parse(files[0], {
-            header: true,
-            complete: function (results) {
-                // check is emty any property
-                const isMissingData = results.data.filter(result => result?.Starter == '' || result?.Position == '' || result?.Weight == '' || result?.Height == '' || result['Player Name'] == '' || result['Player Image'] == '' || result['Jersey Number'] == '' || result['Nationality'] == '' || result['Flag Image'] == '' || result?.Appearances == '' || result['Minutes Played'] == '' || result['Goals '] == '' || result?.Assists == '' || result['Clean Sheets'] == '' || result['Saves'] == '');
-                if (isMissingData.length > 0) {
-                    setError('Your sheet is missing data. Please ensure all cells are filled filled out.');
-                    uploadButtonRef.current.classList.add('errorFile');
-                } else {
-                    setError('');
-                    uploadButtonRef.current.classList.remove('errorFile');
+
+        if (files[0]?.type?.includes('csv')) {
+
+            parse(files[0], {
+                header: true,
+                complete: function (results) {
+                    // check is emty any property
+                    const isMissingData = results.data.filter(result => result?.Starter == '' || result?.Position == '' || result?.Weight == '' || result?.Height == '' || result['Player Name'] == '' || result['Player Image'] == '' || result['Jersey Number'] == '' || result['Nationality'] == '' || result['Flag Image'] == '' || result?.Appearances == '' || result['Minutes Played'] == '' || result['Goals '] == '' || result?.Assists == '' || result['Clean Sheets'] == '' || result['Saves'] == '');
+
+                    if (isMissingData.length > 0) {
+                        dispatch(storeCsvData([]));
+                        setError('Your sheet is missing data. Please ensure all cells are filled filled out.');
+                        uploadButtonRef.current.classList.add('errorFile');
+                    } else {
+                        setError('');
+                        uploadButtonRef.current.classList.remove('errorFile');
+                    }
                 }
-            }
-        })
+            })
+        } else {
+            setError("File must be in .csv format");
+            uploadButtonRef.current.classList.add('errorFile');
+        }
     };
 
 
@@ -143,7 +151,7 @@ const ImportTeam = ({ openModal, handleOpenModal, handleCloseModal }) => {
                                 }}
                                 style={{ display: 'none' }}
                                 id="contained-button-file"
-                                accept='.csv'
+                                accept=".csv"
                                 ref={inputRef}
                                 type="file"
                             />

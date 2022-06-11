@@ -51,6 +51,7 @@ const Header = ({ show }) => {
         if (inputRef.current.value === '') return;
         dispatch(setTeamName(inputRef.current.value));
         handleClose();
+        editIconRef.current.classList?.add('remove-icon');
     };
 
     useEffect(() => {
