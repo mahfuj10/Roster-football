@@ -87,7 +87,7 @@ const ErrorField = ({ condition }) => {
                         </Typography>
 
                         <Typography variant='body'>
-                            Your select {goalkeepers?.length} goalkeepers, {forwards?.length} forwards, {defenders?.length} defenders and {midfielders?.length} midilfilerds players.
+                            Your selected {goalkeepers?.length} goalkeepers, {forwards?.length} forwards, {defenders?.length} defenders and {midfielders?.length} midilfilerds players.
                         </Typography>
 
                         <Typography variant='body'>

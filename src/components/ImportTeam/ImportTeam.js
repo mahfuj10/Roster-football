@@ -8,6 +8,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import { parse } from "papaparse";
 import { useDispatch, useSelector } from 'react-redux';
 import { savePlayers, storeCsvData, uploadCsvFile } from '../../Redux/dataSlice/dataSlice';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import uploadedFileLink from '../../assest/psg-roster-players.csv';
+import ImportExportOutlinedIcon from '@mui/icons-material/ImportExportOutlined';
+import { useEffect } from 'react';
 
 const style = {
     position: 'absolute',
@@ -25,6 +29,7 @@ const style = {
 
 
 const ImportTeam = ({ openModal, handleOpenModal, handleCloseModal }) => {
+
 
 
 
@@ -48,8 +53,18 @@ const ImportTeam = ({ openModal, handleOpenModal, handleCloseModal }) => {
     };
 
 
+    const autoImportTeam = async () => {
+        await fetch('/data.json')
+            .then(res => res.json())
+            .then(data => dispatch(storeCsvData(data)));
+    };
+
+
+
     // missing data indentify
     const missingDataFromFile = (files) => {
+
+
 
         if (files[0]?.type?.includes('csv')) {
 
@@ -109,6 +124,14 @@ const ImportTeam = ({ openModal, handleOpenModal, handleCloseModal }) => {
         fontWeight: 500,
         fontSize: 14
     }
+    const downloadBtn = {
+        fontSize: 14,
+        mt: 2,
+        background: '#212121',
+        color: 'white'
+    }
+
+
 
     return (
 
@@ -120,6 +143,7 @@ const ImportTeam = ({ openModal, handleOpenModal, handleCloseModal }) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
+
 
 
                     <Box sx={modalHeader}>
@@ -136,11 +160,44 @@ const ImportTeam = ({ openModal, handleOpenModal, handleCloseModal }) => {
 
                     </Box>
 
+
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+                        <Typography variant='body' sx={title}>
+                            Download File
+                        </Typography>
+
+
+                        <a href={uploadedFileLink} target="_blank" rel="noopener noreferrer" download>
+                            <IconButton sx={downloadBtn}>
+                                <FileDownloadOutlinedIcon />
+                            </IconButton>
+                        </a>
+
+                    </Box>
+
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+                        <Typography variant='body' sx={title}>
+                            Auto import team
+                        </Typography>
+
+
+
+                        <IconButton onClick={autoImportTeam} sx={downloadBtn}>
+                            <ImportExportOutlinedIcon />
+                        </IconButton>
+
+                    </Box>
+
                     <Typography variant='body' sx={title}>
                         Roster File
                     </Typography>
 
                     <Box sx={{ my: 2 }}>
+
+
+
 
                         <label htmlFor="contained-button-file">
 
