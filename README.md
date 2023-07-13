@@ -1,5 +1,5 @@
 
-# Roster football (code challenge)
+# Roster football
 
 Live link:- https://neon-dodol-dd4589.netlify.app/
 
